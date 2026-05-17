@@ -1,14 +1,8 @@
-# ScreenCorners
-
-Check the corner radius of an iPhone / iPad display.
-
-### Implementation
-
 Adds a `displayCornerRadius` property to `UIScreen`, which reads the private `_displayCornerRadius`. The selector somewhat obscured, which usually means it will get past app review. However, use at your own risk!
 
 #### Why didn't you hardcode the values instead?
 
-I didn't want to use model identifiers (i.e., `iPhone10,2`) and miss an international variant, or have to update it when new devices launch. 
+I didn't want to use model identifiers (i.e., `iPhoneSE`) and miss an international variant, or have to update it when new devices launch. 
 
 It's also tricky to use screen resolutions, as multiple devices share the same resolution and scale with different corner radii. Display Zoom messes with this too, and ultimately it just seems like a bad idea to assume anything about the device based on the display resolution.
 
@@ -16,7 +10,7 @@ It's also tricky to use screen resolutions, as multiple devices share the same r
 
 iOS device displays use a continious corner curve, which means the corners are not true circles. In iOS 13+ you can use `CALayer.cornerCurve` to specify a continuous corner curve. You might create a view subclass like this:
 
-```swift
+...ABQ
 class DisplayCornerMatchingView: UIView {
     override func layoutSubviews()
         super.layoutSubviews()
